@@ -25,36 +25,34 @@ def invitelink(bot, update):
                        action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['invite_link'])
 
-def twitter(bot, update):
+def fbgroup(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id,
                        action=ChatAction.TYPING)
-    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['twitter'])
+    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['fbgroup'])
 
-def facebook(bot, update):
+def googleform(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id,
                        action=ChatAction.TYPING)
-    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['facebook'])
+    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['googleform'])
 
-def mailinglist(bot, update):
-    bot.sendChatAction(chat_id=update.message.chat_id,
-                       action=ChatAction.TYPING)
-    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['mailing_list'])
+def googlegroup(bot, update):
+    bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+    bot.sendMessage(chat_id=update.message.chat_id, text=comfig['BOT']['googlegroup'])
 
 def help(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=help_text,parse_mode='Markdown')
 
-
-twitter_handler = CommandHandler('twitter',twitter)
 invite_handler = CommandHandler('invitelink',invitelink)
-facebook_handler = CommandHandler('facebook',facebook)
-mailinglist_handler = CommandHandler('mailinglist',mailinglist)
+fbgroup_handler = CommandHandler('facebook',fbgroup)
+googleform_handler = CommandHandler('twitter',googleform)
+googlegroup_handler = CommandHandler('mailinglist',googlegroup)
 help_handler = CommandHandler('help',help)
 
-dispatcher.add_handler(twitter_handler)
 dispatcher.add_handler(invite_handler)
-dispatcher.add_handler(facebook_handler)
-dispatcher.add_handler(mailinglist_handler)
+dispatcher.add_handler(fbgroup_handler)
+dispatcher.add_handler(googleform_handler)
+dispatcher.add_handler(googlegroup_handler)
 dispatcher.add_handler(help_handler)
 
 
