@@ -1,1 +1,1 @@
-worker: python3.5 lugbot.py
+worker: python2.7.12 lugbot.py
