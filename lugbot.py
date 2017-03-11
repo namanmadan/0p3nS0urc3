@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, InlineQueryHandler
 import configparser
 import logging
