@@ -41,19 +41,23 @@ def googlegroup(bot, update):
 def help(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=help_text,parse_mode='Markdown')
+    
+def unknown(bot, update):
+    bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")   
 
 invite_handler = CommandHandler('invitelink',invitelink)
 fbgroup_handler = CommandHandler('facebook',fbgroup)
 googleform_handler = CommandHandler('googleform',googleform)
 googlegroup_handler = CommandHandler('googlegroup',googlegroup)
 help_handler = CommandHandler('help',help)
+unknown_handler = MessageHandler(Filters.command, unknown)
 
 dispatcher.add_handler(invite_handler)
 dispatcher.add_handler(fbgroup_handler)
 dispatcher.add_handler(googleform_handler)
 dispatcher.add_handler(googlegroup_handler)
 dispatcher.add_handler(help_handler)
-
+dispatcher.add_handler(unknown_handler)
 
 updater.start_polling()
 updater.idle()
