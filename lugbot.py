@@ -36,7 +36,7 @@ def googleform(bot, update):
 
 def googlegroup(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
-    bot.sendMessage(chat_id=update.message.chat_id, text=comfig['BOT']['googlegroup'])
+    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['googlegroup'])
 
 def help(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
