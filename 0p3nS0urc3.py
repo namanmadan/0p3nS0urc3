@@ -17,6 +17,7 @@ help_text="""
 [ x ] /googleform  --> Link to the Google Form
 [ x ] /googlegroup  --> Link to the Google Group
 [ x ] /facebook    --> Facebook Group of Open3Source
+[ x ] /hi          --> Greetings
 """
 
 def invitelink(bot, update):
@@ -38,20 +39,28 @@ def googlegroup(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=comfig['BOT']['googlegroup'])
 
+def hi(bot, update):
+    bot.sendChatAction(chat_id=update.message.chat_id,
+                       action=ChatAction.TYPING)
+    bot.sendMessage(chat_id=update.message.chat_id, text=config['BOT']['hi'])
+    
 def help(bot, update):
     bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.sendMessage(chat_id=update.message.chat_id, text=help_text,parse_mode='Markdown')
+    
 
 invite_handler = CommandHandler('invitelink',invitelink)
 fbgroup_handler = CommandHandler('facebook',fbgroup)
 googleform_handler = CommandHandler('googleform',googleform)
 googlegroup_handler = CommandHandler('googlegroup',googlegroup)
+greet_handler = CommandHandler('hi',hi)
 help_handler = CommandHandler('help',help)
 
 dispatcher.add_handler(invite_handler)
 dispatcher.add_handler(fbgroup_handler)
 dispatcher.add_handler(googleform_handler)
 dispatcher.add_handler(googlegroup_handler)
+dispatcher.add_handler(greet_handler)
 dispatcher.add_handler(help_handler)
 
 
