@@ -14,7 +14,7 @@ updater = Updater(token=config['BOT']['TOKEN'])
 dispatcher = updater.dispatcher
 help_text="""
 [ x ] /invitelink  --> Prints the invite link to this group
-[ x ] /twitter     --> Link to the ILUG-D Twitter
+[ x ] /twitter     --> Link to the Open3Source Twitter
 [ x ] /facebook    --> Facebook page of ILUG-D
 [ x ] /mailinglist --> Link to the mailing list for ILUG-D
 """
@@ -44,8 +44,8 @@ def help(bot, update):
 
 invite_handler = CommandHandler('invitelink',invitelink)
 fbgroup_handler = CommandHandler('facebook',fbgroup)
-googleform_handler = CommandHandler('twitter',googleform)
-googlegroup_handler = CommandHandler('mailinglist',googlegroup)
+googleform_handler = CommandHandler('googleform',googleform)
+googlegroup_handler = CommandHandler('googlegroup',googlegroup)
 help_handler = CommandHandler('help',help)
 
 dispatcher.add_handler(invite_handler)
